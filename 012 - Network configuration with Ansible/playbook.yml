@@ -1,0 +1,39 @@
+---
+- name: Setup H1
+  hosts: H1
+  become: true
+  vars:
+   address: 10.0.1.2
+   network: 10.0.1.0
+   gateway: 10.0.1.1
+   destination: 10.0.2.0
+  roles:
+  - hosts
+
+- name: Setup H2
+  hosts: H2
+  become: true
+  vars:
+   address: 10.0.2.2
+   network: 10.0.2.0
+   gateway: 10.0.2.1
+   destination: 10.0.1.0
+  roles:
+  - hosts
+
+- name: Setup R1
+  hosts: router
+  become: true
+  roles:
+  - router
+
+- name: Verify Setup
+  hosts: H1
+  tasks:
+   - name: curl H2
+     command: "curl http://10.0.2.2"
+     register: output
+
+   - name: Check output
+     debug:
+       msg: "{{ output.stdout_lines }}"

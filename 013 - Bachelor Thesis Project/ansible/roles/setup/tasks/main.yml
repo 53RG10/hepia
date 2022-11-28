@@ -1,0 +1,25 @@
+- name: enable fsverity on filesystem
+  command: "tune2fs -O verity /dev/vda1" # edit vda1 with disk name
+
+- name: install fsverity tools
+  apt:
+    install_recommends: no
+    name:
+    - fsverity
+    - keyutils # for keyctl command
+
+- name: make fsverity signature mandatory
+  sysctl:
+    name: fs.verity.require_signatures
+    value: "1"
+
+# certificate must be generated manually
+# it's done only once and does not require automation
+# if several certificates are needed, automation is a good solution
+#- name: copying certificate
+#  copy:
+#    src: "{{ certificate }}"
+#    dest: "{{ certificate }}"
+
+#- name: installing certificate in fs-verity keyring
+#  command: "keyctl padd asymmetric '' %keyring:.fs-verity < {{ certificate }}"

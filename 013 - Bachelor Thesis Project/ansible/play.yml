@@ -1,0 +1,6 @@
+---
+- name: FS-Verity
+  hosts: all
+  roles:
+  - setup
+  - demo

@@ -1,0 +1,7 @@
+- name: restart network
+  service:
+    name: networking
+    state: restarted
+
+- name: load routing config
+  command: "sysctl -p {{ routing_conf }}"

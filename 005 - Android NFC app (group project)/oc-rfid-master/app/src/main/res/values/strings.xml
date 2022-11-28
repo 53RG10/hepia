@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">SSL2</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="simulate_scan_point">Simulate Scan point</string>
+    <string name="user">Login</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_simulate">Simulate</string>
+    <string name="checkpoint_3">Checkpoint 3</string>
+    <string name="checkpoint_2">Checkpoint 2</string>
+    <string name="checkpoint_1">Checkpoint 1</string>
+    <string name="cliquer_ici_pour_vous_connecter">Cliquer ici pour vous connecter.</string>
+    <string name="cliquer_sur_le_boutton_en_dessous_pour_simuler_un_scanneur">Cliquer sur le boutton en dessous pour simuler un scanneur</string>
+    <string name="connection">Connection</string>
+    <string name="nom_d_identification">Nom d\'identification</string>
+    <string name="cr_er_un_nouveau_utilisateur">Créer un nouveau utilisateur</string>
+    <string name="title_activity_formular">formular</string>
+    <string name="formulaire_d_inscription">Formulaire d\'inscription</string>
+    <string name="nom_pr_nom"><![CDATA[Nom & prénom]]></string>
+    <string name="email">Email</string>
+    <string name="nom_de_login">Nom de login</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="agent_d_enregistrement">Agent d\'enregistrement</string>
+    <string name="utilisateur">Utilisateur</string>
+    <string name="cr_er_un_profile">Créer un profile</string>
+    <string name="title_activity_check_luggage">CheckLuggage</string>
+    <string name="title_">MainActivity</string>
+    <string name="title_activity_assign_luggage">AssignLuggage</string>
+    <string name="title_activity_scan_luggage">ScanLuggage</string>
+    <string name="result">result</string>
+</resources>

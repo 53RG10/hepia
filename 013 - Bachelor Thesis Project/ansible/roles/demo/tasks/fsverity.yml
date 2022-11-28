@@ -1,0 +1,47 @@
+- name: get file digest
+  fs-verity:
+    digest: True
+    file: "{{ filename }}"
+  register: result
+
+- name: generate verity signature for file
+  fs-verity:
+    signature: True
+    file: "{{ filename }}"
+    signed: "{{ signature }}"
+    hash: "{{ result.message.out }}"
+    key: "{{ key_path }}"
+    cert: "{{ cert_path }}"
+  delegate_to: localhost
+  register: result
+
+- name: copy signature to host
+  copy:
+    src: "{{ signature }}"
+    dest: "{{ signature }}"
+
+- name: enable fs-verity on file
+  fs-verity:
+    enable: True
+    file: "{{ filename }}"
+    signed: "{{ signature }}"
+  register: result
+
+- name: delete signature on host
+  file:
+    state: absent
+    path: "{{ signature }}"
+
+- name: delete signature on server
+  file:
+    state: absent
+    path: "{{ signature }}"
+  delegate_to: localhost
+
+- name: check if fsverity is enabled
+  fs-verity:
+    verify: True
+    file: "{{ filename }}"
+  register: result
+
+- debug: var=result

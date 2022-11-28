@@ -1,0 +1,33 @@
+- name: set static IP
+  template:
+    src: templates/eth_conf.j2
+    dest: "/etc/network/interfaces.d/{{ ifname }}"
+  notify: restart network
+
+- name: add ip routes
+  lineinfile:
+    path: "/etc/network/interfaces.d/{{ ifname }}"
+    line: "        up ip route add {{ destination }}/24 via {{ gateway }} dev {{ ifname }}"
+    insertbefore: EOF
+  notify: restart network
+
+- name: install curl on H1
+  apt:
+    name: curl
+    state: latest
+    install_recommends: no
+  when: inventory_hostname == "H1"
+
+- name: install nginx on H2
+  apt:
+    name: nginx
+    state: latest
+    install_recommends: no
+  notify: restart nginx
+  when: inventory_hostname == "H2"
+
+- name: copy new webpage to webserver
+  template:
+    src: templates/index.html
+    dest: /var/www/html/index.html
+  when: inventory_hostname == "H2"

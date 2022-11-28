@@ -1,0 +1,27 @@
+- name: set static IP eth1
+  vars:
+   ifname: eth1
+   address: 10.0.1.1
+   gateway: 10.0.1.1
+   network: 10.0.1.0
+  template:
+    src: templates/eth_conf.j2
+    dest: "/etc/network/interfaces.d/{{ ifname }}"
+  notify: restart network
+
+- name: set static IP eth2
+  vars:
+   ifname: eth2
+   address: 10.0.2.1
+   gateway: 10.0.2.1
+   network: 10.0.2.0
+  template:
+    src: templates/eth_conf.j2
+    dest: "/etc/network/interfaces.d/{{ ifname }}"
+  notify: restart network
+
+- name: routing configuration
+  template:
+    src: templates/routing.j2
+    dest: "{{ routing_conf }}"
+  notify: load routing config

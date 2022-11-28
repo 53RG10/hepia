@@ -1,0 +1,11 @@
+#!/bin/bash
+
+index="/home/iti/index"
+
+# Remove file from index
+sed -i "s|$1||" $index
+
+# Disable fs-verity
+cp $1 $1.temp
+mv $1.temp $1
+

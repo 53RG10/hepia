@@ -1,0 +1,10 @@
+filename: "{{ item }}"
+signature: "{{ filename }}.sig"
+key: "private.pem"
+key_path: "/home/iti/sign/private.pem"     
+cert: "certificate.pem"
+cert_path: "/home/iti/sign/certificate.pem"
+
+files:
+  - "/home/iti/abc.txt"
+  - "/home/iti/def.txt"

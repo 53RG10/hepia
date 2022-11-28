@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8"/>
+  <title>VisNum | Labo 3</title>
+  <link rel="icon" href="favicon.ico" type='image/x-icon'>
+  <link rel="stylesheet" href="style/style.css" type="text/css">
+  <script src="js/easel.js" type="application/javascript"></script>
+  <script src="js/canvas.js" type="application/javascript"></script>
+</head>
+
+<body>
+    <div>
+      <h3>Draw here: </h3>
+      <canvas id="canvas" width="400" height="400"></canvas>
+      <script>init();</script>
+    </div>
+
+    <br>
+
+    <div>
+      <button onclick="clear_board()">Reset board</button>
+    </div>
+
+    <br>
+
+    <div>
+      <button onclick="postData()">Send</button>
+    </div>
+
+    <br>
+
+    <div id="return"></div>
+
+    <br><br>
+
+    <div>
+      <form action="/">
+        <p>Specify number below if you wish to add it to the training dataset</p>
+        <label for="number">Number:</label>
+        <input type="number" id="number">
+      </form>
+    </div>
+</body>
+
+</html>

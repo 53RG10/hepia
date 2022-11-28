@@ -1,0 +1,12 @@
+- name: restart interface
+  command: "ifdown --force {{ ifname }} && ifup --force {{ ifname }}"
+
+- name: restart network
+  service:
+    name: networking
+    state: restarted
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted

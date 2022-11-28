@@ -1,0 +1,5 @@
+ifname: eth1
+netmask: 255.255.255.0
+html_page_title: Hepia
+R1_eth1: 10.0.1.1
+R1_eth2: 10.0.2.1

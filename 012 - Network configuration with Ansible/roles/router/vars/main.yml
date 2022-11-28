@@ -1,0 +1,2 @@
+netmask: 255.255.255.0
+routing_conf: /etc/sysctl.d/routing.conf

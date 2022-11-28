@@ -1,0 +1,12 @@
+[Unit]
+Description=FS-Verity monitoring service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/usr/bin/python3 /home/iti/service/fsverity_service.py
+
+[Install]
+WantedBy=multi-user.target

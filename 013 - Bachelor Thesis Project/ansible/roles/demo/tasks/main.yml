@@ -1,0 +1,2 @@
+- include_tasks: fsverity.yml
+  with_items: "{{ files }}"
